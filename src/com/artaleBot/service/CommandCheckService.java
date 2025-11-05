@@ -1,7 +1,18 @@
 package com.artaleBot.service;
 
+import java.io.IOException;
+import java.io.InputStream;
+import java.net.URI;
+import java.net.http.HttpClient;
+import java.net.http.HttpRequest;
+import java.net.http.HttpResponse;
+import java.net.http.HttpResponse.BodyHandlers;
+
 public class CommandCheckService {
 
+	private String url = "localhost:8080/";
+	private HttpClient client = HttpClient.newBuilder().build();
+	
 	public void checkCommandType(String command) {
 		
 		String noExclamation = command.substring(1).toLowerCase();
@@ -36,6 +47,21 @@ public class CommandCheckService {
 	}
 	
 	private void mobCommand(String mob) {
+		HttpRequest request = HttpRequest.newBuilder()
+								.uri(URI.create(url + "mob"))
+								.GET()
+								.build();
+		/*
+		HttpResponse<String> response = client.send(request, BodyHandlers.ofString());
+			
+		System.out.println(response.body()); */
+		
+		//doesn't need to be in a try-with-resources
+		
+		client.sendAsync(request, BodyHandlers.ofString())
+						.thenApply(HttpResponse::body)
+						.thenAccept(System.out::println);
+		//Need to perform tests with more reading and learning about HttpClient	
 		
 	}
 	
