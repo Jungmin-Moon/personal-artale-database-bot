@@ -1,24 +1,24 @@
 package com.artaleBot.service;
 
 import java.io.IOException;
-import java.io.InputStream;
 import java.net.URI;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 import java.net.http.HttpResponse.BodyHandlers;
+import java.time.Duration;
 
 public class CommandCheckService {
-
-	private String url = "localhost:8080/";
-	private HttpClient client = HttpClient.newBuilder().build();
 	
 	public void checkCommandType(String command) {
 		
 		String noExclamation = command.substring(1).toLowerCase();
 		
+		String[] values = command.split(" ");
 		
-		switch(noExclamation) {
+		String commandNoExclamationPoint = values[0].substring(1);
+		
+		switch(commandNoExclamationPoint) {
 			case "mob" -> mobCommand(noExclamation.substring(4));
 			case "boss" -> bossCommand(noExclamation.substring(5));
 			case "equipment" -> equipmentCommand(noExclamation.substring(10));
@@ -32,7 +32,9 @@ public class CommandCheckService {
 	public boolean validateCommand(String command) {
 		boolean validCommand = false;
 		
-		String commandNoExclamationPoint = command.substring(1).toLowerCase();
+		String[] values = command.split(" ");
+		
+		String commandNoExclamationPoint = values[0].substring(1);
 		
 		switch (commandNoExclamationPoint) {
 			case "mob" -> validCommand = true;
@@ -47,21 +49,22 @@ public class CommandCheckService {
 	}
 	
 	private void mobCommand(String mob) {
+		
+		String mobUrl = "http://localhost:8080/mobs/";
+		HttpClient client = HttpClient.newHttpClient();
+	
 		HttpRequest request = HttpRequest.newBuilder()
-								.uri(URI.create(url + "mob"))
+								.uri(URI.create(mobUrl + mob))
+								.timeout(Duration.ofMinutes(1))
+								.header("Content-Type", "application/json")
 								.GET()
 								.build();
-		/*
-		HttpResponse<String> response = client.send(request, BodyHandlers.ofString());
-			
-		System.out.println(response.body()); */
-		
-		//doesn't need to be in a try-with-resources
-		
+
 		client.sendAsync(request, BodyHandlers.ofString())
 						.thenApply(HttpResponse::body)
 						.thenAccept(System.out::println);
-		//Need to perform tests with more reading and learning about HttpClient	
+		
+
 		
 	}
 	
