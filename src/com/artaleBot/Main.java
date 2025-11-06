@@ -25,7 +25,8 @@ public class Main {
 					System.out.println("That is not a valid command. Type !help for a list of commands.");
 					
 				} else {
-					commandCheckService.checkCommandType(userInput);
+					String response = commandCheckService.checkCommandType(userInput);
+					
 				}
 				
 				userInput = input.nextLine();
