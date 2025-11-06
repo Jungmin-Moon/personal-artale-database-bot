@@ -60,11 +60,13 @@ public class CommandCheckService {
 								.GET()
 								.build();
 
+		String result = "";
+		
 		client.sendAsync(request, BodyHandlers.ofString())
 						.thenApply(HttpResponse::body)
 						.thenAccept(System.out::println);
 		
-
+		
 		
 	}
 	
