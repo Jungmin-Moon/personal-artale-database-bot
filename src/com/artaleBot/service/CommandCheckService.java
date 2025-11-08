@@ -12,10 +12,10 @@ import com.artaleBot.commands.Commands;
 
 public class CommandCheckService {
 	
-	Commands commandCenter;
+	Commands commandCenter = new Commands();
 	
-	CommandCheckService(Commands commandCenter) {
-		this.commandCenter = commandCenter;
+	public CommandCheckService() {
+		
 	}
 	
 	
@@ -32,10 +32,10 @@ public class CommandCheckService {
 		
 		switch(commandNoExclamationPoint) {
 			case "mob" -> response = commandCenter.mobCommand(noExclamation.substring(4));
-			case "boss" -> response = bossCommand(noExclamation.substring(5));
-			case "equipment" -> response = equipmentCommand(noExclamation.substring(10));
-			case "mobdrop" -> response = mobDropCommand(noExclamation.substring(8));
-			case "bossdrop" -> response = bossDropCommand(noExclamation.substring(9));
+			case "boss" -> response = commandCenter.bossCommand(noExclamation.substring(5));
+			case "equipment" -> response = commandCenter.equipmentCommand(noExclamation.substring(10));
+			case "mobdrop" -> response = commandCenter.mobDropCommand(noExclamation.substring(8));
+			case "bossdrop" -> response = commandCenter.bossDropCommand(noExclamation.substring(9));
 			case "help" -> response = commandCenter.helpCommand();
 		}
 		
@@ -60,21 +60,5 @@ public class CommandCheckService {
 		}
 		
 		return validCommand;
-	}
-	
-	private String bossCommand(String boss) {
-		return "Placeholder Text";
-	}
-	
-	private String equipmentCommand(String equipment) {
-		return "Placeholder Text";
-	}
-	
-	private String mobDropCommand(String mobDrop) {
-		return "Placeholder Text";
-	}
-	
-	private String bossDropCommand(String bossDrop) {
-		return "Placeholder Text";
 	}
 }

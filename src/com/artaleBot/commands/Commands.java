@@ -10,7 +10,9 @@ import java.util.concurrent.CompletableFuture;
 
 public class Commands {
 
-	
+	public Commands() {
+		
+	}
 	
 	public String mobCommand(String mob) {
 			
@@ -32,6 +34,22 @@ public class Commands {
 			
 	}
 	
+	
+	public String bossCommand(String boss) {
+		return "Placeholder Text";
+	}
+	
+	public String equipmentCommand(String equipment) {
+		return "Placeholder Text";
+	}
+	
+	public String mobDropCommand(String mobDrop) {
+		return "Placeholder Text";
+	}
+	
+	public String bossDropCommand(String bossDrop) {
+		return "Placeholder Text";
+	}
 	
 	
 	public String helpCommand() {
