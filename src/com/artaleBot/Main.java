@@ -3,12 +3,14 @@ package com.artaleBot;
 import java.util.Scanner;
 
 import com.artaleBot.service.CommandCheckService;
+import com.artaleBot.service.JSONMapperService;
 
 public class Main {
 	
 	public static void main(String[] args) {
 		
 		CommandCheckService commandCheckService = new CommandCheckService();
+		JSONMapperService jsonMapper = new JSONMapperService();
 		
 		try (Scanner input = new Scanner(System.in)) {
 			
@@ -26,7 +28,8 @@ public class Main {
 					
 				} else {
 					String response = commandCheckService.checkCommandType(userInput);
-					
+					System.out.println(response);
+					//jsonMapper.determineProperOutput(response);
 				}
 				
 				userInput = input.nextLine();
