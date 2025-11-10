@@ -14,13 +14,16 @@ public class Commands {
 		
 	}
 	
+	private String url = "http://localhost:8080/";
+	private HttpClient client = HttpClient.newHttpClient();
+	
 	public String mobCommand(String mob) {
 			
-			String mobUrl = "http://localhost:8080/mobs/";
-			HttpClient client = HttpClient.newHttpClient();
+			//String mobUrl = "http://localhost:8080/mobs/";
+			//HttpClient client = HttpClient.newHttpClient();
 		
 			HttpRequest request = HttpRequest.newBuilder()
-									.uri(URI.create(mobUrl + mob))
+									.uri(URI.create(url + "mobs/" + mob))
 									.timeout(Duration.ofMinutes(1))
 									.header("Content-Type", "application/json")
 									.GET()
