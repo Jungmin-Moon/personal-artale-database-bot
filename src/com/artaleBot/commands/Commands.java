@@ -7,6 +7,7 @@ import java.net.http.HttpResponse;
 import java.net.http.HttpResponse.BodyHandlers;
 import java.time.Duration;
 import java.util.concurrent.CompletableFuture;
+import java.util.concurrent.ExecutionException;
 
 public class Commands {
 
@@ -22,6 +23,8 @@ public class Commands {
 			//String mobUrl = "http://localhost:8080/mobs/";
 			//HttpClient client = HttpClient.newHttpClient();
 		
+			System.out.println(mob);
+		
 			HttpRequest request = HttpRequest.newBuilder()
 									.uri(URI.create(url + "mobs/" + mob))
 									.timeout(Duration.ofMinutes(1))
@@ -33,7 +36,19 @@ public class Commands {
 			CompletableFuture<Object> response = client.sendAsync(request, BodyHandlers.ofString())
 													.thenApply(HttpResponse::body);
 			
-			return response.toString();
+			String output = "";
+			
+			try {
+				output = response.get().toString();
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (ExecutionException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
+			return output;
 			
 	}
 	

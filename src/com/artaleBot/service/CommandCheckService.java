@@ -29,6 +29,7 @@ public class CommandCheckService {
 		
 		String response = "";
 		
+		//!mob 
 		
 		switch(commandNoExclamationPoint) {
 			case "mob" -> response = commandCenter.mobCommand(noExclamation.substring(4));
