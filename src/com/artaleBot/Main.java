@@ -2,8 +2,11 @@ package com.artaleBot;
 
 import java.util.Scanner;
 
+import com.artaleBot.pojo.Mob;
 import com.artaleBot.service.CommandCheckService;
 import com.artaleBot.service.JSONMapperService;
+
+import tools.jackson.databind.ObjectMapper;
 
 public class Main {
 	
@@ -28,8 +31,16 @@ public class Main {
 					
 				} else {
 					String response = commandCheckService.checkCommandType(userInput);
-					System.out.println(response);
-					//jsonMapper.determineProperOutput(response);
+
+					
+					if (response.equalsIgnoreCase("null")) {
+						System.out.println("No data available for that search.");
+					} else {
+						//System.out.println(response);
+						jsonMapper.determineProperOutput(response);
+
+					}
+					
 				}
 				
 				userInput = input.nextLine();

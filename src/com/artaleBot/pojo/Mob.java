@@ -2,23 +2,38 @@ package com.artaleBot.pojo;
 
 public class Mob {
 
-	int mobID;
-	String mobName;
-	int mobLevel;
-	int mobHP;
-	int mobMP;
-	int mobEXP;
-	int mobMinMeso;
-	int mobMaxMeso;
-	int mobNeededAccuracy;
-	String mobLocation;
-	String mobLocationTwo;
+	private int id;
+
+	private String mobName;
+	
+	private int mobLevel;
+
+	private int mobHP;
+
+	private int mobMP;
+
+	private int mobEXP;
+
+	private int mobMinMeso;
+
+	private int mobMaxMeso;
+
+	private int mobNeededAccuracy;
+
+	private String mobLocation;
+
+	private String mobLocationTwo;
+	
+	public Mob() {
+		
+	}
 	
 	
-	public Mob(int mobID, String mobName, int mobLevel, int mobHP, int mobMP, int mobEXP, int mobMinMeso,
-			int mobMaxMeso, int mobNeededAccuracy, String mobLocation, String mobLocationTwo) {
+	
+	public Mob(int id, String mobName, int mobLevel, int mobHP, int mobMP, int mobEXP, int mobMinMeso, int mobMaxMeso,
+			int mobNeededAccuracy, String mobLocation, String mobLocationTwo) {
 		super();
-		this.mobID = mobID;
+		this.id = id;
 		this.mobName = mobName;
 		this.mobLevel = mobLevel;
 		this.mobHP = mobHP;
@@ -32,13 +47,14 @@ public class Mob {
 	}
 
 
-	public int getMobID() {
-		return mobID;
+
+	public int getId() {
+		return id;
 	}
 
 
-	public void setMobID(int mobID) {
-		this.mobID = mobID;
+	public void setId(int id) {
+		this.id = id;
 	}
 
 
@@ -140,8 +156,5 @@ public class Mob {
 	public void setMobLocationTwo(String mobLocationTwo) {
 		this.mobLocationTwo = mobLocationTwo;
 	}
-	
-	
-	
 	
 }

@@ -9,6 +9,8 @@ import java.time.Duration;
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.ExecutionException;
 
+import com.artaleBot.service.JSONMapperService;
+
 public class Commands {
 
 	public Commands() {
@@ -18,16 +20,13 @@ public class Commands {
 	private String url = "http://localhost:8080/";
 	private HttpClient client = HttpClient.newHttpClient();
 	
+	
 	public String mobCommand(String mob) {
 			
-			//String mobUrl = "http://localhost:8080/mobs/";
-			//HttpClient client = HttpClient.newHttpClient();
-		
-			//System.out.println(mob);
+
 			
 			String modifiedUri = url + "mobs/" + mob;
 			modifiedUri = modifiedUri.replace(" ", "%20");
-			System.out.println(modifiedUri);
 		
 			HttpRequest request = HttpRequest.newBuilder()
 									.uri(URI.create(modifiedUri))
@@ -40,7 +39,7 @@ public class Commands {
 			CompletableFuture<Object> response = client.sendAsync(request, BodyHandlers.ofString())
 													.thenApply(HttpResponse::body);
 			
-			String output = "";
+			var output = "";
 			
 			try {
 				output = response.get().toString();
