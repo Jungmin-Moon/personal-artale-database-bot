@@ -23,10 +23,14 @@ public class Commands {
 			//String mobUrl = "http://localhost:8080/mobs/";
 			//HttpClient client = HttpClient.newHttpClient();
 		
-			System.out.println(mob);
+			//System.out.println(mob);
+			
+			String modifiedUri = url + "mobs/" + mob;
+			modifiedUri = modifiedUri.replace(" ", "%20");
+			System.out.println(modifiedUri);
 		
 			HttpRequest request = HttpRequest.newBuilder()
-									.uri(URI.create(url + "mobs/" + mob))
+									.uri(URI.create(modifiedUri))
 									.timeout(Duration.ofMinutes(1))
 									.header("Content-Type", "application/json")
 									.GET()
