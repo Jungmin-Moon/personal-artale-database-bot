@@ -6,11 +6,13 @@ import tools.jackson.databind.JsonNode;
 import tools.jackson.databind.ObjectMapper;
 import tools.jackson.databind.json.JsonMapper;
 
-public class JSONMapperService {
+public class InformationOutputService {
 	
-	public JSONMapperService() {
+	public InformationOutputService() {
 		
 	}	
+	
+	PojoCreator pojoCreator = new PojoCreator();
 	
 	ObjectMapper mapper = JsonMapper.builder().build();
 	
@@ -33,17 +35,16 @@ public class JSONMapperService {
 	}
 	
 	//genuinely do not understand why the POJO mapping isn't working, why is there a access to public member failed issue
-	
+	//{"id":1,"mobName":"Snail","mobLevel":1,"mobHP":8,"mobMP":0,"mobEXP":3,"mobMinMeso":4,"mobMaxMeso":6,"mobNeededAccuracy":0,"mobLocation":"Victoria Island","mobLocationTwo":""}
 	private void printMobInformation(String content) {
 		
 		System.out.println(content);
 		JsonNode mobInfo = mapper.readTree(content);
-		System.out.println(mobInfo.get("mobName").asString());
+		//System.out.println(mobInfo.get("mobName").asString());
+		
+		pojoCreator.mobCreator(mobInfo);
 		
 		
-		//Mob mobInfo2 = mapper.reader().forType(Mob.class).readValue(content);
-		
-		//System.out.println(mobInfo.toString());
 	}
 	
 	private void printBossInformation(String content) {

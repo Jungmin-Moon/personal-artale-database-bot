@@ -2,7 +2,7 @@ package com.artaleBot.pojo;
 
 public class Mob {
 
-	private int id;
+	private long id;
 
 	private String mobName;
 	
@@ -30,7 +30,7 @@ public class Mob {
 	
 	
 	
-	public Mob(int id, String mobName, int mobLevel, int mobHP, int mobMP, int mobEXP, int mobMinMeso, int mobMaxMeso,
+	public Mob(long id, String mobName, int mobLevel, int mobHP, int mobMP, int mobEXP, int mobMinMeso, int mobMaxMeso,
 			int mobNeededAccuracy, String mobLocation, String mobLocationTwo) {
 		super();
 		this.id = id;
@@ -48,12 +48,12 @@ public class Mob {
 
 
 
-	public int getId() {
+	public long getId() {
 		return id;
 	}
 
 
-	public void setId(int id) {
+	public void setId(long id) {
 		this.id = id;
 	}
 
@@ -157,4 +157,8 @@ public class Mob {
 		this.mobLocationTwo = mobLocationTwo;
 	}
 	
+	@Override
+	public String toString() {
+		return "";
+	}
 }

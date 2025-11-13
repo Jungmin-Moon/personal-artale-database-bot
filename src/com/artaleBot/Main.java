@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 import com.artaleBot.pojo.Mob;
 import com.artaleBot.service.CommandCheckService;
-import com.artaleBot.service.JSONMapperService;
+import com.artaleBot.service.InformationOutputService;
 
 import tools.jackson.databind.ObjectMapper;
 
@@ -13,7 +13,7 @@ public class Main {
 	public static void main(String[] args) {
 		
 		CommandCheckService commandCheckService = new CommandCheckService();
-		JSONMapperService jsonMapper = new JSONMapperService();
+		InformationOutputService informationOutputter = new InformationOutputService();
 		
 		try (Scanner input = new Scanner(System.in)) {
 			
@@ -37,7 +37,7 @@ public class Main {
 						System.out.println("No data available for that search.");
 					} else {
 						//System.out.println(response);
-						jsonMapper.determineProperOutput(response);
+						informationOutputter.determineProperOutput(response);
 
 					}
 					

@@ -9,7 +9,7 @@ import java.time.Duration;
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.ExecutionException;
 
-import com.artaleBot.service.JSONMapperService;
+import com.artaleBot.service.InformationOutputService;
 
 public class Commands {
 
