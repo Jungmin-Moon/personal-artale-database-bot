@@ -38,9 +38,7 @@ public class InformationOutputService {
 	//{"id":1,"mobName":"Snail","mobLevel":1,"mobHP":8,"mobMP":0,"mobEXP":3,"mobMinMeso":4,"mobMaxMeso":6,"mobNeededAccuracy":0,"mobLocation":"Victoria Island","mobLocationTwo":""}
 	private void printMobInformation(String content) {
 		
-		System.out.println(content);
 		JsonNode mobInfo = mapper.readTree(content);
-		//System.out.println(mobInfo.get("mobName").asString());
 		
 		pojoCreator.mobCreator(mobInfo);
 		
@@ -48,7 +46,9 @@ public class InformationOutputService {
 	}
 	
 	private void printBossInformation(String content) {
+		JsonNode bossInfo = mapper.readTree(content);
 		
+		pojoCreator.bossCreator(bossInfo);
 	}
 	
 	private void printEquipmentInformation(String content) {

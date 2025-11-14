@@ -36,7 +36,7 @@ public class Main {
 					if (response.equalsIgnoreCase("null")) {
 						System.out.println("No data available for that search.");
 					} else {
-						//System.out.println(response);
+
 						informationOutputter.determineProperOutput(response);
 
 					}

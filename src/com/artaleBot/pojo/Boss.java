@@ -1,0 +1,91 @@
+package com.artaleBot.pojo;
+
+public class Boss {
+	
+	private long id;
+	
+	private String bossName;
+	
+	private int bossLevel;
+	
+	private int bossHP;
+	
+	private int bossMaxRespawn;
+	
+	private int bossMinRespawn;
+	
+	private String bossLocation;
+
+	public Boss(long id, String bossName, int bossLevel, int bossHP, int bossMaxRespawn, int bossMinRespawn,
+			String bossLocation) {
+		super();
+		this.id = id;
+		this.bossName = bossName;
+		this.bossLevel = bossLevel;
+		this.bossHP = bossHP;
+		this.bossMaxRespawn = bossMaxRespawn;
+		this.bossMinRespawn = bossMinRespawn;
+		this.bossLocation = bossLocation;
+	}
+
+	public long getId() {
+		return id;
+	}
+
+	public void setId(long id) {
+		this.id = id;
+	}
+
+	public String getBossName() {
+		return bossName;
+	}
+
+	public void setBossName(String bossName) {
+		this.bossName = bossName;
+	}
+
+	public int getBossLevel() {
+		return bossLevel;
+	}
+
+	public void setBossLevel(int bossLevel) {
+		this.bossLevel = bossLevel;
+	}
+
+	public int getBossHP() {
+		return bossHP;
+	}
+
+	public void setBossHP(int bossHP) {
+		this.bossHP = bossHP;
+	}
+
+	public int getBossMaxRespawn() {
+		return bossMaxRespawn;
+	}
+
+	public void setBossMaxRespawn(int bossMaxRespawn) {
+		this.bossMaxRespawn = bossMaxRespawn;
+	}
+
+	public int getBossMinRespawn() {
+		return bossMinRespawn;
+	}
+
+	public void setBossMinRespawn(int bossMinRespawn) {
+		this.bossMinRespawn = bossMinRespawn;
+	}
+
+	public String getBossLocation() {
+		return bossLocation;
+	}
+
+	public void setBossLocation(String bossLocation) {
+		this.bossLocation = bossLocation;
+	}
+	
+	@Override
+	public String toString() {
+		return "";
+	}
+}

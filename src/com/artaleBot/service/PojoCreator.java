@@ -22,4 +22,9 @@ public class PojoCreator {
 		
 		
 	}
+	
+	
+	public void bossCreator(JsonNode bossInfo) {
+		
+	}
 }

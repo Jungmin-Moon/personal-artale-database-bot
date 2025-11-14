@@ -23,8 +23,6 @@ public class Commands {
 	
 	public String mobCommand(String mob) {
 			
-
-			
 			String modifiedUri = url + "mobs/" + mob;
 			modifiedUri = modifiedUri.replace(" ", "%20");
 		
@@ -44,10 +42,10 @@ public class Commands {
 			try {
 				output = response.get().toString();
 			} catch (InterruptedException e) {
-				// TODO Auto-generated catch block
+
 				e.printStackTrace();
 			} catch (ExecutionException e) {
-				// TODO Auto-generated catch block
+
 				e.printStackTrace();
 			}
 			
@@ -57,7 +55,28 @@ public class Commands {
 	
 	
 	public String bossCommand(String boss) {
-		return "Placeholder Text";
+		String modifiedUri = url + "boss/" + boss;
+		modifiedUri = modifiedUri.replace(" ", "%20");
+		
+		HttpRequest request = HttpRequest.newBuilder()
+								.uri(URI.create(modifiedUri))
+								.timeout(Duration.ofMinutes(1))
+								.header("Content-Type", "application/json")
+								.GET()
+								.build();
+		
+		CompletableFuture<Object> response = client.sendAsync(request, BodyHandlers.ofString())
+												.thenApply(HttpResponse::body);
+		
+		var output = "";
+		
+		try {
+			output = response.get().toString();
+		} catch (InterruptedException | ExecutionException e) {
+			e.printStackTrace();
+		}
+		
+		return output;
 	}
 	
 	public String equipmentCommand(String equipment) {
