@@ -159,6 +159,27 @@ public class Mob {
 	
 	@Override
 	public String toString() {
-		return "";
+		
+		if (this.mobLocationTwo.equals("")) {
+		
+			return "Mob Name: " + this.mobName + "\n" +
+					"Mob Level: " + this.mobLevel + "\n" +
+					"Mob HP: " + this.mobHP + "\n" + 
+					"Mob MP: " + this.mobMP + "\n" +
+					"Mob Meso: " + this.mobMinMeso + "~" + this.mobMaxMeso + "\n" +
+					"Mob Accuracy need to hit: " + this.mobNeededAccuracy + "\n" + 
+					"Mob Location: " + this.mobLocation + "\n";
+		} else {
+			return "Mob Name: " + this.mobName + "\n" +
+					"Mob Level: " + this.mobLevel + "\n" +
+					"Mob HP: " + this.mobHP + "\n" + 
+					"Mob MP: " + this.mobMP + "\n" +
+					"Mob Meso: " + this.mobMinMeso + "~" + this.mobMaxMeso + "\n" +
+					"Mob Accuracy need to hit: " + this.mobNeededAccuracy + "\n" + 
+					"Mob Location: " + this.mobLocation + "\n" +
+					"Mob Location Two: " + this.mobLocationTwo + "\n";
+		}
+
+		
 	}
 }
