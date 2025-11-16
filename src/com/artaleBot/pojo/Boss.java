@@ -86,6 +86,27 @@ public class Boss {
 	
 	@Override
 	public String toString() {
-		return "";
+		return "Boss Name: " + this.getBossName() + "\n" +
+				"Boss Level: " + this.getBossLevel() + "\n" +
+				"Boss HP: " + this.getBossHP() + "\n" + 
+				"Boss Respawn Time: " + this.convertMinRespawnTohours() + " hours and " + this.convertMinToMinutes() + " minutes to " + 
+				this.convertMaxRespawnToHours() + " hours and " + this.convertMaxToMinutes() + " minutes" + "\n" + 
+				"Boss Location: " + this.getBossLocation();
+	}
+	
+	private int convertMaxRespawnToHours() {
+		return this.getBossMaxRespawn() / 60;
+	}
+	
+	private int convertMinRespawnTohours() {
+		return this.getBossMinRespawn() / 60;
+	}
+	
+	private int convertMaxToMinutes() {
+		return this.getBossMaxRespawn() % 60;
+	}
+	
+	private int convertMinToMinutes() {
+		return this.getBossMinRespawn() % 60;
 	}
 }

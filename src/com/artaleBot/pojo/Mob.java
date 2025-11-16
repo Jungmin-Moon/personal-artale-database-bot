@@ -162,22 +162,22 @@ public class Mob {
 		
 		if (this.mobLocationTwo.equals("")) {
 		
-			return "Mob Name: " + this.mobName + "\n" +
-					"Mob Level: " + this.mobLevel + "\n" +
-					"Mob HP: " + this.mobHP + "\n" + 
-					"Mob MP: " + this.mobMP + "\n" +
-					"Mob Meso: " + this.mobMinMeso + "~" + this.mobMaxMeso + "\n" +
-					"Mob Accuracy need to hit: " + this.mobNeededAccuracy + "\n" + 
-					"Mob Location: " + this.mobLocation + "\n";
+			return "Mob Name: " + this.getMobName() + "\n" +
+					"Mob Level: " + this.getMobLevel() + "\n" +
+					"Mob HP: " + this.getMobHP() + "\n" + 
+					"Mob MP: " + this.getMobMP() + "\n" +
+					"Mob Meso: " + this.getMobMinMeso() + "~" + this.getMobMaxMeso() + "\n" +
+					"Mob Accuracy need to hit: " + this.getMobNeededAccuracy() + "\n" + 
+					"Mob Location: " + this.getMobLocation() + "\n";
 		} else {
-			return "Mob Name: " + this.mobName + "\n" +
-					"Mob Level: " + this.mobLevel + "\n" +
-					"Mob HP: " + this.mobHP + "\n" + 
-					"Mob MP: " + this.mobMP + "\n" +
-					"Mob Meso: " + this.mobMinMeso + "~" + this.mobMaxMeso + "\n" +
-					"Mob Accuracy need to hit: " + this.mobNeededAccuracy + "\n" + 
-					"Mob Location: " + this.mobLocation + "\n" +
-					"Mob Location Two: " + this.mobLocationTwo + "\n";
+			return "Mob Name: " + this.getMobName() + "\n" +
+					"Mob Level: " + this.getMobLevel() + "\n" +
+					"Mob HP: " + this.getMobHP() + "\n" + 
+					"Mob MP: " + this.getMobMP() + "\n" +
+					"Mob Meso: " + this.getMobMinMeso() + "~" + this.getMobMaxMeso() + "\n" +
+					"Mob Accuracy need to hit: " + this.getMobNeededAccuracy() + "\n" + 
+					"Mob Location: " + this.getMobLocation() + "\n" +
+					"Mob Location Two: " + this.getMobLocationTwo() + "\n";
 		}
 
 		
