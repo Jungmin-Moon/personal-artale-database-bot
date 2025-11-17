@@ -1,6 +1,6 @@
 package com.artaleBot.service;
 
-import com.artaleBot.pojo.Boss;
+import com.artaleBot.dto.Boss;
 import com.artaleBot.dto.Mob;
 
 import tools.jackson.databind.JsonNode;
@@ -26,7 +26,7 @@ public class PojoCreator {
 	
 	
 	public void bossCreator(JsonNode bossInfo) {
-		Boss searchedBoss = new Boss(bossInfo.get("id").asLong(), bossInfo.get("bossName").asString(), bossInfo.get("bossLevel").asInt(), bossInfo.get("bossHP").asInt(),
+		Boss searchedBoss = new Boss(bossInfo.get("bossName").asString(), bossInfo.get("bossLevel").asInt(), bossInfo.get("bossHP").asInt(),
 									bossInfo.get("bossMinRespawn").asInt(), bossInfo.get("bossMaxRespawn").asInt(), bossInfo.get("bossLocation").asString());
 		
 		

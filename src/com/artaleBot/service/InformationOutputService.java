@@ -1,6 +1,5 @@
 package com.artaleBot.service;
 
-import com.artaleBot.pojo.Mob;
 
 import tools.jackson.databind.JsonNode;
 import tools.jackson.databind.ObjectMapper;
