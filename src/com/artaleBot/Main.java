@@ -2,11 +2,9 @@ package com.artaleBot;
 
 import java.util.Scanner;
 
-import com.artaleBot.pojo.Mob;
 import com.artaleBot.service.CommandCheckService;
 import com.artaleBot.service.InformationOutputService;
 
-import tools.jackson.databind.ObjectMapper;
 
 public class Main {
 	

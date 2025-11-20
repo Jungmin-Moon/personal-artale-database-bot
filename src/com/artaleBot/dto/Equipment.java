@@ -45,8 +45,70 @@ public record Equipment(String equipmentName, String equipmentType, int minimumL
 			str.append("Magic Def: " + this.magicDef + "\n");
 		}
 		
+		str.append(this.equippableClasses());
 		
+		
+		if (this.requiredStr > 0) {
+			str.append("Required STR: " + this.requiredStr + "\n");
+		}
+		
+		if (this.requiredDex > 0) {
+			str.append("Required DEX: " + this.requiredDex + "\n");
+		}
+		
+		if (this.requiredInt > 0) {
+			str.append("Required INT: " + this.requiredInt + "\n");
+		}
+		
+		if (this.requiredLuk > 0) {
+			str.append("Required LUK: " + this.requiredLuk + "\n");
+		}
 		
 		return str.toString();
+	}
+	
+	private String equippableClasses() {
+		StringBuilder classesThatCanEquip = new StringBuilder();
+		
+		classesThatCanEquip.append("Equippable By: [");
+		
+		if (this.common == 1) {
+			
+			classesThatCanEquip.append("ALL");
+			
+		} else {
+			
+			if (this.warrior == 1) {
+				classesThatCanEquip.append("WARRIOR ");
+			}
+			
+			if (this.magician == 1) {
+				classesThatCanEquip.append("MAGICIAN ");
+			}
+			
+			if (this.thief == 1) {
+				classesThatCanEquip.append("THIEF ");
+			}
+			
+			if (this.archer == 1) {
+				classesThatCanEquip.append("ARCHER ");
+			}
+			
+			if (this.pirate == 1) {
+				classesThatCanEquip.append("PIRATE ");
+			}
+			
+			if (this.beginner == 1) {
+				classesThatCanEquip.append("BEGINNER ");
+			}
+		}
+		
+		String stringListingWhoCanEquip = classesThatCanEquip.toString();
+		
+		stringListingWhoCanEquip.trim();
+		
+		stringListingWhoCanEquip = stringListingWhoCanEquip + "]";
+		
+		return stringListingWhoCanEquip;
 	}
 }
