@@ -80,7 +80,31 @@ public class Commands {
 	}
 	
 	public String equipmentCommand(String equipment) {
-		return "Placeholder Text";
+		String modifiedUri = url + "equipment/" + equipment;
+		modifiedUri = modifiedUri.replace(" ", "%20");
+		
+		HttpRequest request = HttpRequest.newBuilder()
+								.uri(URI.create(modifiedUri))
+								.timeout(Duration.ofMinutes(1))
+								.header("Content-Type", "application/json")
+								.GET()
+								.build();
+		
+		CompletableFuture<Object> response = client.sendAsync(request, BodyHandlers.ofString())
+													.thenApply(HttpResponse::body);
+		
+		var output = "";
+		
+		try {
+			output = response.get().toString();
+		} catch (InterruptedException | ExecutionException e) {
+			e.printStackTrace();
+		}
+		
+		return output;
+		
+		
+		
 	}
 	
 	public String mobDropCommand(String mobDrop) {

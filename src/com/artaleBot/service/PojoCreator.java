@@ -2,6 +2,7 @@ package com.artaleBot.service;
 
 import com.artaleBot.dto.Boss;
 import com.artaleBot.dto.Mob;
+import com.artaleBot.dto.Equipment;
 
 import tools.jackson.databind.JsonNode;
 
@@ -31,5 +32,15 @@ public class PojoCreator {
 		
 		
 		System.out.println(searchedBoss.toString());
+	}
+	
+	public void equipmentCreator(JsonNode equipmentInfo) {
+		Equipment searchedEquipment = new Equipment(equipmentInfo.get("equipmentName").asString(), equipmentInfo.get("equipmentType").asString(), equipmentInfo.get("minimumLevel").asInt(), equipmentInfo.get("weaponAtt").asString(), 
+				equipmentInfo.get("magicAtt").asString(), equipmentInfo.get("attSpeed").asString(), equipmentInfo.get("weaponDef").asString(), equipmentInfo.get("magicDef").asString(), equipmentInfo.get("warrior").asInt(), 
+				equipmentInfo.get("magician").asInt(), equipmentInfo.get("thief").asInt(), equipmentInfo.get("pirate").asInt(), equipmentInfo.get("archer").asInt(), equipmentInfo.get("common").asInt(), equipmentInfo.get("beginner").asInt(), 
+				equipmentInfo.get("requiredStr").asInt(), equipmentInfo.get("requiredDex").asInt(), equipmentInfo.get("requiredInt").asInt(), equipmentInfo.get("requiredLuk").asInt());
+		
+		
+		System.out.println(searchedEquipment.toString());
 	}
 }

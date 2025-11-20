@@ -26,7 +26,7 @@ public class InformationOutputService {
 			printBossInformation(content);
 		}
 		
-		if (content.contains("equimentName")) {
+		if (content.contains("equipmentName")) {
 			printEquipmentInformation(content);
 		}
 		
@@ -51,6 +51,8 @@ public class InformationOutputService {
 	}
 	
 	private void printEquipmentInformation(String content) {
-		
+		JsonNode equipmentInfo = mapper.readTree(content);
+		System.out.println(content);
+		pojoCreator.equipmentCreator(equipmentInfo);
 	}
 }
