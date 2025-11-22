@@ -105,9 +105,9 @@ public record Equipment(String equipmentName, String equipmentType, int minimumL
 		
 		String stringListingWhoCanEquip = classesThatCanEquip.toString();
 		
-		stringListingWhoCanEquip.trim();
+		stringListingWhoCanEquip = stringListingWhoCanEquip.trim();
 		
-		stringListingWhoCanEquip = stringListingWhoCanEquip + "]";
+		stringListingWhoCanEquip = stringListingWhoCanEquip + "]\n";
 		
 		return stringListingWhoCanEquip;
 	}
