@@ -18,7 +18,7 @@ public class CommandCheckService {
 		
 	}
 	
-	
+	//Method to get the information from Commands
 	public String checkCommandType(String command) {
 		
 		String noExclamation = command.substring(1).toLowerCase();
@@ -44,6 +44,7 @@ public class CommandCheckService {
 		
 	}
 	
+	//Method to validate that commands are legal
 	public boolean validateCommand(String command) {
 		boolean validCommand = false;
 		

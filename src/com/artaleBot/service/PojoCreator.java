@@ -12,7 +12,7 @@ public class PojoCreator {
 		super();
 	}
 	
-	
+	//Method that creates an Mob record from the JSON node and then prints the toString output
 	public void mobCreator(JsonNode mobInfo) {
 		
 		Mob searchedMob = new Mob(mobInfo.get("mobName").asString(), mobInfo.get("mobLevel").asInt(), mobInfo.get("mobHP").asInt(),
@@ -25,7 +25,7 @@ public class PojoCreator {
 		
 	}
 	
-	
+	//Method that creates an Boss record from the JSON node and then prints the toString output
 	public void bossCreator(JsonNode bossInfo) {
 		Boss searchedBoss = new Boss(bossInfo.get("bossName").asString(), bossInfo.get("bossLevel").asInt(), bossInfo.get("bossHP").asInt(),
 									bossInfo.get("bossMinRespawn").asInt(), bossInfo.get("bossMaxRespawn").asInt(), bossInfo.get("bossLocation").asString());
@@ -34,6 +34,7 @@ public class PojoCreator {
 		System.out.println(searchedBoss.toString());
 	}
 	
+	//Method that creates an Equipment record from the JSON node and then prints the toString output
 	public void equipmentCreator(JsonNode equipmentInfo) {
 		Equipment searchedEquipment = new Equipment(equipmentInfo.get("equipmentName").asString(), equipmentInfo.get("equipmentType").asString(), equipmentInfo.get("minimumLevel").asInt(), equipmentInfo.get("weaponAtt").asString(), 
 				equipmentInfo.get("magicAtt").asString(), equipmentInfo.get("attSpeed").asString(), equipmentInfo.get("weaponDef").asString(), equipmentInfo.get("magicDef").asString(), equipmentInfo.get("warrior").asInt(), 

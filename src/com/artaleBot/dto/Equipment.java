@@ -1,22 +1,9 @@
 package com.artaleBot.dto;
 
+//Immutable Equipment entity for GET requests
 public record Equipment(String equipmentName, String equipmentType, int minimumLevel, String weaponAtt, String magicAtt, String attSpeed, String weaponDef, String magicDef,
 						int warrior, int magician, int thief, int pirate, int archer, int common, int beginner, int requiredStr, int requiredDex, int requiredInt, int requiredLuk) {
 
-	
-	//att_speed can be N/A
-	/*
-	 * equipmentName is a varchar
-	 * equipmentType is a varchar
-	 * weaponAtt is a varchar
-	 * magicAtt is a varchar
-	 * attSpeed is a varchar
-	 * weaponDef is a varchar
-	 * magicDef is a varchar
-	 */
-	
-	
-	//need to test if statements
 	@Override
 	public String toString() {
 		StringBuilder str = new StringBuilder();
@@ -67,6 +54,7 @@ public record Equipment(String equipmentName, String equipmentType, int minimumL
 		return str.toString();
 	}
 	
+	//Method to properly build the line for which classes can equip a piece of equipment
 	private String equippableClasses() {
 		StringBuilder classesThatCanEquip = new StringBuilder();
 		

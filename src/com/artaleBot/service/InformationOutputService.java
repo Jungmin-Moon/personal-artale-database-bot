@@ -15,6 +15,7 @@ public class InformationOutputService {
 	
 	ObjectMapper mapper = JsonMapper.builder().build();
 	
+	//Checks which kind of entity needs to be made
 	public void determineProperOutput(String content) {
 		
 		
@@ -33,8 +34,8 @@ public class InformationOutputService {
 		
 	}
 	
-	//genuinely do not understand why the POJO mapping isn't working, why is there a access to public member failed issue
-	//{"id":1,"mobName":"Snail","mobLevel":1,"mobHP":8,"mobMP":0,"mobEXP":3,"mobMinMeso":4,"mobMaxMeso":6,"mobNeededAccuracy":0,"mobLocation":"Victoria Island","mobLocationTwo":""}
+
+	//Method that creates an Mob record
 	private void printMobInformation(String content) {
 		
 		JsonNode mobInfo = mapper.readTree(content);
@@ -44,15 +45,17 @@ public class InformationOutputService {
 		
 	}
 	
+	//Method that creates an Boss record
 	private void printBossInformation(String content) {
 		JsonNode bossInfo = mapper.readTree(content);
 		
 		pojoCreator.bossCreator(bossInfo);
 	}
 	
+	//Method that creates an Equipment record
 	private void printEquipmentInformation(String content) {
 		JsonNode equipmentInfo = mapper.readTree(content);
-		//System.out.println(content);
+		
 		pojoCreator.equipmentCreator(equipmentInfo);
 	}
 }

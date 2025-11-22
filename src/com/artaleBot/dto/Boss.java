@@ -1,5 +1,6 @@
 package com.artaleBot.dto;
 
+//Immutable Boss entity used for GET requests
 public record Boss(String bossName, int bossLevel, int bossHP, int bossMaxRespawn, int bossMinRespawn, String bossLocation) {
 	
 	@Override

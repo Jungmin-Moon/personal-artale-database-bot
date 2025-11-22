@@ -17,10 +17,11 @@ public class Commands {
 		
 	}
 	
+	//Url of the REST API
 	private String url = "http://localhost:8080/";
 	private HttpClient client = HttpClient.newHttpClient();
 	
-	
+	//Method to create GET requests for mobs
 	public String mobCommand(String mob) {
 			
 			String modifiedUri = url + "mobs/" + mob;
@@ -53,7 +54,7 @@ public class Commands {
 			
 	}
 	
-	
+	//Method to create GET requests for boss
 	public String bossCommand(String boss) {
 		String modifiedUri = url + "boss/" + boss;
 		modifiedUri = modifiedUri.replace(" ", "%20");
@@ -79,6 +80,7 @@ public class Commands {
 		return output;
 	}
 	
+	//Method to create GET requests for equipment
 	public String equipmentCommand(String equipment) {
 		String modifiedUri = url + "equipment/" + equipment;
 		modifiedUri = modifiedUri.replace(" ", "%20");
@@ -107,6 +109,7 @@ public class Commands {
 		
 	}
 	
+	//Future commands with placeholder text at the moment
 	public String mobDropCommand(String mobDrop) {
 		return "Placeholder Text";
 	}
@@ -115,7 +118,7 @@ public class Commands {
 		return "Placeholder Text";
 	}
 	
-	
+	//Method to show a list of available commands and how to properly use them
 	public String helpCommand() {
 		return "The available commands are:\n " + 
 		"Note: spelling matters for the search item after the command and a space should be between the command and the search item like in the examples.\n" +

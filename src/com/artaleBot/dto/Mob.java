@@ -1,5 +1,6 @@
 package com.artaleBot.dto;
 
+//Immutable Mob entity for GET requests
 public record Mob(String mobName, int mobLevel, int mobHP, int mobMP, int mobEXP, int mobMinMeso, int mobMaxMeso, int mobNeededAccuracy, String mobLocation, String mobLocationTwo) {
 	
 
